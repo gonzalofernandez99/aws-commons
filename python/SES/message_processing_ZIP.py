@@ -45,7 +45,7 @@ def lambda_handler(event, context):
             extract_zip_attachment(email_message)
         return {
             'statusCode': 200,
-            'body': json.dumps('Hello from Lambda!')
+            'body': json.dumps('Prueba - Procesamiento de mensaje exitoso')
         }
     except Exception as e:
         print(f"Error: {e}")
