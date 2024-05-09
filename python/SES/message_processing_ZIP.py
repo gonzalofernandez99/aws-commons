@@ -37,14 +37,12 @@ def lambda_handler(event, context):
     try:
         print(event)
         file_key,subject = extract_message_id(event)
-        bucket_name = "evolution-maximo"
+        bucket_name = "name_bucket"
         s3_client = boto3.client('s3')
         print(file_key)
         email_message = get_email_from_s3(bucket_name, file_key)
         if email_message:
-            print("aca")
             extract_zip_attachment(email_message)
-            print("FIN")
         return {
             'statusCode': 200,
             'body': json.dumps('Hello from Lambda!')
